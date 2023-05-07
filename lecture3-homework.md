@@ -28,7 +28,7 @@
 
 - **零知识**：
 
-## 第3题 双线性自映射意味着DDH的失效 Self-pairing implies failure of DDH
+## 第3题 双线性自映射意味着DDH的失效 Self-pairing implies failure of DDH *(ToDo)*
 > 阿贝尔群：亦称交换群。一种重要的群类。对于群 $G$ 中任意二元 $a$ ， $b$ ，一般地，除了结合律外， $ab≠ba$ 若群 $G$ 的运算满足交换律，即对任意的 $a$ ， $b∈G$ 都有 $ab=ba$ ，则称 $G$ 为阿贝尔群。
 
 > [双线性映射](https://www.bilibili.com/video/BV11M411m7Qq/?spm_id_from=333.337.search-card.all.click&vd_source=0dd037413d496f35de84d58a72548d41)：1.双线性 2.非退化性 3.可计算性
