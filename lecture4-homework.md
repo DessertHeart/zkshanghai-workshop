@@ -1,5 +1,7 @@
 # 第4课 课后作业
 
-## 第1题 xxxxxx
+> [Semaphore](https://semaphore.appliedzkp.org/)
 
-xxxxxx
+## 第1题 Semaphore入门Set up
+
+(todo)
