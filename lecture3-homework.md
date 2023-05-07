@@ -33,9 +33,9 @@
 
 > [双线性映射](https://www.bilibili.com/video/BV11M411m7Qq/?spm_id_from=333.337.search-card.all.click&vd_source=0dd037413d496f35de84d58a72548d41)：1.双线性 2.非退化性 3.可计算性
 
-要判断等式 $\alpha \beta g = y$ 是否成立，只需要计算 $e(\alpha g, \beta g) = e(y, g)$ 是否成立（双线性映射 “可计算性” 性质）。在等式 $\alpha \beta g = y$ 两端同时计算与 $g$ 的映射得到 $e(\alpha \beta g, g) = e(y, g)$ 。而 $e(\alpha \beta g, g) = e(\alpha g, \beta g)$ (?)
+要判断等式 $\alpha \beta g = y$ 是否成立，只需要计算 $e(\alpha g, \beta g) = e(y, g)$ 是否成立（双线性映射 “可计算性” 性质）。在等式 $\alpha \beta g = y$ 两端同时计算与 $g$ 的映射得到 $e(\alpha \beta g, g) = e(y, g)$ 。而 $e(\alpha \beta g, g) = e(\alpha g, \beta g)$ (？这一步如何推得?)
 
-## 第4题 BLS 签名聚合 BLS signature aggregation
+## 第4题 BLS 签名聚合 BLS signature aggregation *(ToDo)*
 
 1. **验证算法始终能接受正确的签名**。因为在 $Verifiy(pk,m,\sigma)$ 这一步，等式左端 $e(g_0,\sigma) = e(g_0, \alpha H(m))$ ，等式右端 $e(pk,H(m)) = e(\alpha g_0, H(m))= e(g_0,\alpha H(m))$ ，等式两端相等，会始终通过算法验证。
 
