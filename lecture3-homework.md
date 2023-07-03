@@ -48,16 +48,20 @@
 
    这样的一个模拟器和知道秘密的Prover与Verifier交互，其视角在Verifier看来都是一样的，因此也就证明了零知识。
 
-## 第3题 双线性自映射意味着DDH的失效 Self-pairing implies failure of DDH *(ToDo)*
+## 第3题 双线性自映射意味着DDH的失效 Self-pairing implies failure of DDH
 > 阿贝尔群：亦称交换群。一种重要的群类。对于群 $G$ 中任意二元 $a$ ， $b$ ，一般地，除了结合律外， $ab≠ba$ 若群 $G$ 的运算满足交换律，即对任意的 $a$ ， $b∈G$ 都有 $ab=ba$ ，则称 $G$ 为阿贝尔群。
 
 > [双线性映射](https://www.bilibili.com/video/BV11M411m7Qq/?spm_id_from=333.337.search-card.all.click&vd_source=0dd037413d496f35de84d58a72548d41)：1.双线性 2.非退化性 3.可计算性
 
-要判断等式 $\alpha \beta g = y$ 是否成立，只需要计算 $e(\alpha g, \beta g) = e(y, g)$ 是否成立（双线性映射 “可计算性” 性质）。在等式 $\alpha \beta g = y$ 两端同时计算与 $g$ 的映射得到 $e(\alpha \beta g, g) = e(y, g)$ 。而 $e(\alpha \beta g, g) = e(\alpha g, \beta g)$ (？这一步如何推得?)
+要判断等式 $\alpha \beta g = y$ 是否成立，只需要计算 $e(\alpha g, \beta g) = e(y, g)$ 是否成立（双线性映射 “可计算性” 性质）。在等式 $\alpha \beta g = y$ 两端同时计算与 $g$ 的映射得到 $e(\alpha \beta g, g) = e(y, g)$ 。而 $e(\alpha \beta g, g) = e(\alpha g, \beta g)$  ，故而得出连等式。
 
-## 第4题 BLS 签名聚合 BLS signature aggregation *(ToDo)*
+## 第4题 BLS 签名聚合 BLS signature aggregation
 
-1. **验证算法始终能接受正确的签名**。因为在 $Verifiy(pk,m,\sigma)$ 这一步，等式左端 $e(g_0,\sigma) = e(g_0, \alpha H(m))$ ，等式右端 $e(pk,H(m)) = e(\alpha g_0, H(m))= e(g_0,\alpha H(m))$ ，等式两端相等，会始终通过算法验证。
+1. **验证算法始终能接受正确的签名**
 
-2. **选择消息攻击下的存在性不可伪造性**。攻击者想要伪造签名 $\sigma \leftarrow \alpha H(m)$ ，首先在多项式时间计算出 $\alpha$ 是困难的，因为知道公钥和生成元 $g_0$ 在多项式时间内计算出私钥是离散对数困难问题。其次，攻击者想要任选消息 $m$ 使得 $H(m)$ 等于一个特定的值，这在多项式时间内也无法做到（因为哈希函数具有抗碰撞性，无法在多项式时间内找到一个 $m$ ，使得 $H(m)$ 等于一个事先给定的值）。
+   因为在 $Verifiy(pk,m,\sigma)$ 这一步，等式左端 $e(g_0,\sigma) = e(g_0, \alpha H(m))$ ，等式右端 $e(pk,H(m)) = e(\alpha g_0, H(m))= e(g_0,\alpha H(m))$ ，等式两端相等，会始终通过算法验证。
+
+4. **选择消息攻击下的存在性不可伪造性**。
+   1. 攻击者想要伪造签名 $\sigma \leftarrow \alpha H(m)$ ，首先在多项式时间计算出 $\alpha$ 是困难的，因为知道公钥和生成元 $g_0$ 在多项式时间内计算出私钥是离散对数困难问题。
+   2. 攻击者想要任选消息 $m$ 使得 $H(m)$ 等于一个特定的值，这在多项式时间内也无法做到（因为哈希函数具有抗碰撞性，无法在多项式时间内找到一个 $m$ ，使得 $H(m)$ 等于一个事先给定的值）。
 
