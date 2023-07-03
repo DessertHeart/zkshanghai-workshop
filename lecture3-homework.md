@@ -18,15 +18,35 @@
     1. Verifier选择 $b=0$ ，发送 $y = s^2x$ ， $QR(m,y)=QR(m,s^2x)=1 \neq b$ ；
     2. Verifier选择 $b=1$ ，发送 $y=s^2$ ， $QR(m,y)=QR(m,s^2)=1=b$ 。
 
-## 第2题 二次剩余 Quadratic residue *(ToDo)*
+## 第2题 二次剩余 Quadratic residue
 
-- **完备性**：如果双方都按照协议行事，那么 Verifier 总是接受。
+- **完备性**：即论证 $QR(m,x)=1$ 的情况。此时Verifier选择 $b$ 有两种情况：
 
-- **可靠性**：
+   - $b=0$ ，根据题目公式，此时Prover计算的 $u=t$ 并发送给Verifier进行验证：等式左边 $y = xt^2 \mod m$ ，等式右边 $u^2 x \mod m = t^2x \mod m$ ，等式两边相等，验证通过。
+
+   - $b=1$ ，同理，此时Prover计算 $u = st$ ，等式左边 $y = xt^2 \mod m$ ，等式右边 $u^2 \mod m = s^2t^2 \mod m$ ，由于 $QR(m,x)=1$ ，因此 $s^2 = x \mod m$ ，从而等式左右两边相等，$y = u^2 \mod m$ ，验证通过。
+
+- **可靠性**：设 $QR(m,x)=0$ 
+
+   - $b=0$ ，Prover选择(纯靠运气蒙) $u=t$ 会通过验证，因为 $y=xt^2 = u^2x \mod m$ 。
+
+   - $b=1$ ，Verifier会验证 $y = xt^2 = u^2 \mod m$ 。已知 $QR(m,x)=0$ ，即不存在一个数 $s$，使得 $s^2 = x \mod m$ 。将Verifier验证的等式变形为 $x = (\frac{u}{t})^2 \mod m$ ，由于不存在这样的数，因此这里Verifier会验证失败，Prover则暴露了不知道真正 $s$ 的事实。
+
+   “=1” 的情况同理，因此Verifier会以大于等于 $1/2$ 的概率拒绝。
 
 - **知识可靠性**：
+  
+   Verifier首先选择随机数 $b=0$，接收到Prover发送的第一个值 $u_1 = t$。然后，Verifier时光倒流回到上一步（即如果允许Verifier对于相同的t同时查询 $b=0$ 与 $b=1$ ），选择随机数 $b=1$ ，这里 $Prover$ 是无感知的，还是会发送同一个 $t$ ，因此Verifier接收到Prover发送的第二个值 $u_2 = st$ ，此时Verifier将这两个数做除法， $\frac{u_2}{u_1} = \frac{st}{t}=s$ ，就提取出秘密 $s$ 。
 
 - **零知识**：
+
+  现在设计一个模拟器（不知道秘密 $s$ ）
+   - Step1: 随机选择一个随机数$b$。
+   - Step2: 选择一个随机数 $u \in \mathbb{Z}_{m}$ 
+   - Step3: 根据 $b$  的值，计算 $y$ ，如果 $b=0$， $y=u^2x \mod m$ ，如果 $b=1$ ， $y = u^2 \mod m$ 。
+   - Step4: 接着，回到和Verifier交互的第一步，即发送 $y$ ，如果Verifier选择的随机数恰好与Step1中选择的随机数 $b$ 相等，那么就继续下面的交互，最终会通过验证；否则，转到Step1，重新随机选择一个数。由于这一过程中由于 $b$ 就两个数，因此期望2轮会和Verifier选择的随机数相同，也通过验证。
+
+   这样的一个模拟器和知道秘密的Prover与Verifier交互，其视角在Verifier看来都是一样的，因此也就证明了零知识。
 
 ## 第3题 双线性自映射意味着DDH的失效 Self-pairing implies failure of DDH *(ToDo)*
 > 阿贝尔群：亦称交换群。一种重要的群类。对于群 $G$ 中任意二元 $a$ ， $b$ ，一般地，除了结合律外， $ab≠ba$ 若群 $G$ 的运算满足交换律，即对任意的 $a$ ， $b∈G$ 都有 $ab=ba$ ，则称 $G$ 为阿贝尔群。
