@@ -21,6 +21,6 @@
 
 ## 第2题 构建仅在行 $i=1$ 上应用RAP的多重集合相等性检查的约束
 
-todo
+> 大神解答：https://github.com/wenjin1997/zkshanghai-workshop/blob/main/lecture6-homework.md
 
 <img width="1046" alt="image" src="https://github.com/DessertHeart/zkshanghai-workshop/assets/93460127/384ba7c9-c68f-4f11-a900-d1ec0364d0fa">
