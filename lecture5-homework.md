@@ -2,8 +2,6 @@
 
 > https://zkshanghai.xyz/notes/exercise5.html
 
-> 膜拜大神：https://github.com/wenjin1997/zkshanghai-workshop/blob/main/lecture5/HW5.pdf
-
 > KZG多项式承诺：https://dankradfeist.de/ethereum/2021/10/13/kate-polynomial-commitments-mandarin.html
 
 ## 第1题 制作一个假的 KZG 证明
